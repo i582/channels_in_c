@@ -1,10 +1,3 @@
-# Simple channels
-
-Channels are similar to those used in Golang, test implementation for training.
-
-Example:
-
-```cpp
 #include "src/thread.h"
 #include "src/chan.h"
 
@@ -58,8 +51,8 @@ void* printWorkerFunc(void* raw_args) {
 }
 
 int main() {
-   chan* in = create_chan(100);
-   chan* out = create_chan(100);
+   chan* in = create_chan(10000);
+   chan* out = create_chan(10000);
 
    worker_args args = {0, in, out};
 
@@ -97,9 +90,7 @@ int main() {
    // Release the channels.
    free_chan(in);
    free_chan(out);
-  
+
    free(data);
    return 0;
 }
-```
-
